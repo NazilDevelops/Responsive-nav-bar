@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --tan-brown:#D2B48C;
+    --grey:#808080;
+    --off-white:#FAF9F6;
+    --matt-black:#28282B;
+}
+body{
+    background-color: var(--off-white);
+    font-family: 'Poppins', sans-serif;
+}
+nav{
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 65vh;
+    width: 100vw;
+}
+.inner-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.list{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1.3em 0 0 0;
+    width: 45%;
+}
+.list li, a{
+    list-style: none;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--matt-black);
+}
+.list a{
+    position: relative;
+}
+.list a::after{
+    content: '';
+    position: absolute;
+    width:0;
+    height: 5px;
+    background-color: var(--tan-brown);
+    border-radius: 25px;
+    left: 0;
+    top: 1.3em;
+    transition:0.5s
+}
+.list a:hover::after{
+    width: 100%;
+}
+.icons{
+    margin: 1.3em 0 0 0;
+}
+.icons i{
+    padding: .5em;
+    cursor: pointer;
+}
+.icons-1{
+    display: none;
+}
+.hamburger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin: 1.3em 0 0 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: none;
+}
+.hamburger .line{
+    width: 70%;
+    height: .2em;
+    background-color: var(--grey);
+    border-radius: 25px;
+}
+.hamburger .line::after, .line::before{
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: .2em;
+    background-color: var(--grey);
+    border-radius: 25px;
+    transition: all .5s ease;
+}
+.hamburger .line::before{
+    transform: translateY(8px);
+}
+.hamburger .line::after{
+    transform: translateY(-8px);
+}
+.hamburger.open .line{
+    background: transparent;
+    transition: all .1s ease;
+}
+.hamburger.open .line::before{
+    transform: rotate(45deg);
+}
+.hamburger.open .line::after{
+    transform: rotate(-45deg);
+}
+/*Responsive design down below*/
+/*Mobile*/
+@media only screen and (max-width:600px) {
+    .icons{
+        display: none;
+    }
+    .icons-1{
+        display: block;
+        cursor: pointer;
+        margin: 8.5vh 0 0 0;
+    }
+    .icons-1 i{
+        padding: 0.5em;
+    }
+    body{
+        overflow-x:hidden ;
+    }
+   .list{
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    width: 50%;
+    top: -5vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transform: translateX(100%);
+    background-color: var(--tan-brown);
+    transition: .6s;
+   }
+   .list li, a{
+    color: var(--off-white);
+    height: 10vh;
+}
+   .hamburger{
+    position: absolute;
+    display: block;
+    right: 19vw;
+    top: 1em;
+}
+.nav-active{
+    transform: translateX(0%);
+}
+}
+/*Tablet*/
+@media only screen and (max-width:760px) {
+    
+}
+/*Large screen*/
+@media only screen and (max-width:1200px) {
+    
+}
